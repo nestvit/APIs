@@ -2,10 +2,10 @@
 import requests
 from pprint import pprint
 
-router = {"ip":"10.1.1.1",
+router = {"ip":"10.10.20.48",
           "port":"443",
-          "user":"root",
-          "pass":"cisco123"}
+          "user":"cisco",
+          "pass":"cisco_1234!"}
 
 headers = {"Accept":"application/yang-data+json"}
 
@@ -20,6 +20,14 @@ r = requests.get(u,
                  verify=False)
 
 pprint(r.text)
+
+import json
+api_data = r.json()
+interfacename = api_data["ietf-interfaces:interface"]["name"]
+
+print(interfacename)
+
+
 
 
 
