@@ -3,16 +3,16 @@ from ncclient import manager
 from pprint import pprint
 import xmltodict
 
-router = {"ip":"10.10.20.48",
+router = {"ip":"172.26.31.201",
           "port":"830",
-          "user":"cisco",
-          "pass":"cisco_1234!"}
+          "user":"cisco1",
+          "pass":"cisco1"}
 
 netconf_filter = """
 <filter>
   <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
     <interface>
-      <name>GigabitEthernet1</name>
+      <name>GigabitEthernet0</name>
     </interface>
   </interfaces>
 </filter>
@@ -33,6 +33,6 @@ print(50*"#")
 pprint(interface_python)
 print()
 print(50*"#")
-pprint(interface_python["interfaces"]["interface"]["name"]["#text"])
+pprint(interface_python["interfaces"]["interface"]["ipv4"]["address"]["ip"])
 print()
 print(50*"#")
