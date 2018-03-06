@@ -3,9 +3,9 @@ from netmiko import ConnectHandler
 from pprint import pprint
 
 router = {"device_type": "cisco_ios",
-          "host": "10.10.20.48",
-          "user": "cisco",
-          "pass": "cisco_1234!"}
+          "host": "172.26.31.201",
+          "user": "cisco1",
+          "pass": "cisco1"}
 
 
 net_connect = ConnectHandler(ip=router["host"],
@@ -13,7 +13,7 @@ net_connect = ConnectHandler(ip=router["host"],
                              password=router["pass"],
                              device_type=router["device_type"])
 
-interface_cli = net_connect.send_command("show run int Gig1")
+interface_cli = net_connect.send_command("show run int Gig0")
 
 pprint(interface_cli)
 
